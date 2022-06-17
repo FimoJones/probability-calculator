@@ -6,12 +6,7 @@ class Hat:
 
     def __init__(self, **kwargs):
 
-        self.contents = []
-
-        for colour, count in kwargs.items():
-            for _ in range(count):
-                self.contents.append(colour)
-
+        self.contents = [colour for colour, count in kwargs.items() for _ in range(count)]
         self.contents_copy = copy.copy(self.contents)
 
     def draw(self, num_balls_drawn: int) -> list:
